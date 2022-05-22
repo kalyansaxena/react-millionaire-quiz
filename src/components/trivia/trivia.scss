@@ -1,0 +1,105 @@
+.trivia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .question {
+    width: 85%;
+    background: linear-gradient(#020230, #000);
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    margin-bottom: 10px;
+  }
+
+  .answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .answer {
+      width: 40%;
+      padding: 10px;
+      border: 1px solid white;
+      border-radius: 15px;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+      background: linear-gradient(#020230, #000);
+      margin: 0px 10px 20px 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      &:hover,
+      &.active {
+        background: goldenrod;
+      }
+
+      &.correct {
+        animation: correct 3s ease forwards;
+      }
+      &.wrong {
+        animation: wrong 3s ease forwards;
+      }
+    }
+  }
+}
+
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background: goldenrod;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#020230, #000);
+  }
+  62%,
+  100% {
+    background: green;
+  }
+}
+
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background: goldenrod;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#020230, #000);
+  }
+  62%,
+  100% {
+    background: crimson;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .trivia {
+    .question {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .answers {
+      .answer {
+        width: 36%;
+        padding: 5px;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
